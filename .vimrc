@@ -78,3 +78,7 @@ function! Writing()
 	Goyo
 endfunction
 cabbrev writing call Writing()
+
+set guioptions-=m
+set guioptions-=T
+set guioptions-=r
