@@ -155,10 +155,11 @@ bindsym $mod+r mode "resize"
 # personal
 hide_edge_borders both
 workspace_auto_back_and_forth yes
-# personal binds
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 -- +10% && killall -SIGUSR1 i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -- -10% && killall -SIGUSR1 i3status
-# start i3bar to display a workspace bar (plus the system information i3status
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5%  # increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5%  # decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle  # mute sound
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute 3 toggle  # mute mic
 # colors
 set $bg-color 	         #2f343f
 set $inactive-bg-color   #2f343f
@@ -211,21 +212,21 @@ bindsym $mod+shift+f exec firefox
 bindsym $mod+shift+t exec thunar
 bindsym $mod+shift+m exec clementine
 ## quick terminal
-#for_window [instance="drop1"] title_format "F12:%title";
-#for_window [instance="drop2"] title_format "F11:%title";
-#for_window [instance="drop3"] title_format "F10:%title";
-#bindsym $mod+F9 exec konsole -name drop1, exec konsole -name drop2, exec konsole -name drop3
 bindsym $mod+F9 exec konsole -name drop1
 for_window [instance="drop*"] floating enable, move scratchpad, scratchpad show;
 #for_window [instance="drop*"] border pixel 1;
 for_window [instance="drop*"] move position 30px 0px;
 for_window [instance="drop*"] resize set 1300px 500px; 
-#for_window [instance="drop*"] resize shrink left 0, resize grow right 683px, resize grow down 300, resize grow up 0;
 for_window [instance="drop*"] sticky enable;
 for_window [instance="drop*"] move scratchpad;
 for_window [instance="drop*"] border pixel 1;
-#bindsym $mod+F12 exec """i3-msg "[instance='drop*'] move scratchpad" && i3-msg "[instance='drop1'] scratchpad show"""
 bindsym F12 [instance="drop1"] scratchpad show
-#bindsym $mod+F11 [instance="drop2"] scratchpad show
-#bindsym $mod+F10 [instance="drop3"] scratchpad show
-#bindsym $mod+F8 [instance="drop*"] move scratchpad
+
+# window focus hotkeys
+bindsym XF86Launch1 [instance="clementine"] focus
+bindsym $mod+o [class="Firefox"] focus
+bindsym $mod+p [class="jetbrains-pycharm"] focus
+bindsym $mod+m [class="chromium"] focus
+bindsym $mod+y [window_role="ConversationsWindow"] focus
+# custom window settings
+for_window [class="Gvim"] floating enable, resize set 1000px 500px, move position center
