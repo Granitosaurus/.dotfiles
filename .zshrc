@@ -55,6 +55,10 @@ alias song='echo "$1" >> ~/music/songs.txt'
 alias xclip='xclip -selection c'
 alias dlsong='youtube-dl --extract-audio --audio-format mp3 -o "~/music/%(title)s.%(ext)s"'
 alias cal='cal -m'
+alias enlt='trans :lt -brief '
+alias eeen='trans est:en -brief '
+alias enee='trans :est -brief '
+alias lten='trans lt:en -brief '
 export PATH=~/bin/:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl
 # Scrapinghub api keys
 source ~/.api_keys
