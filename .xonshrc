@@ -1,0 +1,9 @@
+$PROMPT='{branch_color}{curr_branch}{env_name}{BLUE}{user}@{WHITE}{cwd}{BLUE}\n{prompt_end}{NO_COLOR} '
+$XONSH_COLOR_STYLE="monokai"
+source ~/bin/vox_fix.xsh
+
+# load xontribs
+xontrib load pacman_tabcomplete
+xontrib load vox_tabcomplete
+xontrib load scrapy_tabcomplete
+xontrib load autoxsh
