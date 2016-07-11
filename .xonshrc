@@ -4,6 +4,15 @@ source ~/bin/vox_fix.xsh
 
 # load xontribs
 xontrib load pacman_tabcomplete
-xontrib load vox_tabcomplete
+# xontrib load vox_tabcomplete
 xontrib load scrapy_tabcomplete
 xontrib load autoxsh
+
+# fix for `tldr` package
+$TLDR_COLOR_NAME="green"
+$TLDR_COLOR_EXAMPLE="white"  
+$TLDR_COLOR_DESCRIPTION="green"
+$TLDR_COLOR_BLANK="white"
+
+# aliases
+aliases['gs'] = 'git status --short'
