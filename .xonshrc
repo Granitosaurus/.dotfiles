@@ -1,18 +1,36 @@
+# -----------------------------------------------------------------------------
+# |                               ENVIRONMENTS                                |
+# -----------------------------------------------------------------------------
+$PATH = [
+    '/usr/lib/jvm/default/bin',
+    '/usr/local/sbin',
+    '/usr/local/bin',
+    '/usr/bin',
+    '/usr/bin/site_perl',
+    '/usr/bin/vendor_perl',
+    '/usr/bin/core_perl',
+    '~/dex/bin',
+    '~/.local/bin',
+]
 $PROMPT='{branch_color}{curr_branch}{env_name}{BLUE}{user}@{WHITE}{cwd}{BLUE}\n{prompt_end}{NO_COLOR} '
 $XONSH_COLOR_STYLE="monokai"
-source ~/bin/vox_fix.xsh
-
-# load xontribs
-xontrib load pacman_tabcomplete
-# xontrib load vox_tabcomplete
-xontrib load scrapy_tabcomplete
-xontrib load autoxsh
-
 # fix for `tldr` package
 $TLDR_COLOR_NAME="green"
-$TLDR_COLOR_EXAMPLE="white"  
+$TLDR_COLOR_EXAMPLE="white"
 $TLDR_COLOR_DESCRIPTION="green"
 $TLDR_COLOR_BLANK="white"
-
-# aliases
+# -----------------------------------------------------------------------------
+# |                             Fixes And Scripts                             |
+# -----------------------------------------------------------------------------
+source ~/bin/vox_fix.xsh
+# -----------------------------------------------------------------------------
+# |                                 XONTRIBS                                  |
+# -----------------------------------------------------------------------------
+xontrib load pacman_tabcomplete
+xontrib load scrapy_tabcomplete
+xontrib load autoxsh
+# -----------------------------------------------------------------------------
+# |                                  ALIASES                                  |
+# -----------------------------------------------------------------------------
 aliases['gs'] = 'git status --short'
+aliases['sedit'] = 'scrapy edit --set=EDITOR="charm"'
