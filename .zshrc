@@ -17,7 +17,7 @@ alias vihelp="less ~/.oh-my-zsh/plugins/vi-mode/README.md"
 
 # User configuration
 
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:home/reb/bin"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:home/reb/bin:/home/dex/.local/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -71,4 +71,3 @@ export BROWSER='firefox'
 export VISUAL='vim'
 
 doge -mh 20 #enable doge on startup
-source /usr/bin/activate.sh # autoenv activation

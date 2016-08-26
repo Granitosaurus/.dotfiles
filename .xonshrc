@@ -9,7 +9,7 @@ $PATH = [
     '/usr/bin/site_perl',
     '/usr/bin/vendor_perl',
     '/usr/bin/core_perl',
-    '~/dex/bin',
+    '~/bin',
     '~/.local/bin',
 ]
 $PROMPT='{branch_color}{curr_branch}{env_name}{BLUE}{user}@{WHITE}{cwd}{BLUE}\n{prompt_end}{NO_COLOR} '
@@ -23,14 +23,19 @@ $TLDR_COLOR_BLANK="white"
 # |                             Fixes And Scripts                             |
 # -----------------------------------------------------------------------------
 source ~/bin/vox_fix.xsh
+source ~/.api_keys
 # -----------------------------------------------------------------------------
 # |                                 XONTRIBS                                  |
 # -----------------------------------------------------------------------------
-xontrib load pacman_tabcomplete
+#xontrib load pacman_tabcomplete
 xontrib load scrapy_tabcomplete
+xontrib load vox_tabcomplete
 xontrib load autoxsh
 # -----------------------------------------------------------------------------
 # |                                  ALIASES                                  |
 # -----------------------------------------------------------------------------
 aliases['gs'] = 'git status --short'
 aliases['sedit'] = 'scrapy edit --set=EDITOR="charm"'
+aliases['movies'] = 'cat ~/documents/movies'
+aliases['movie'] = 'echo "$1" >> ~/documents/movies'
+aliases['cpp'] = 'rsync --info=progress2'  # copy with progress
