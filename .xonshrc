@@ -24,12 +24,15 @@ $TLDR_COLOR_BLANK="white"
 # -----------------------------------------------------------------------------
 source ~/bin/vox_fix.xsh
 source ~/.api_keys
+source-bash $(ssh-agent)  # then just ssh-add
 # -----------------------------------------------------------------------------
 # |                                 XONTRIBS                                  |
 # -----------------------------------------------------------------------------
 #xontrib load pacman_tabcomplete
 xontrib load scrapy_tabcomplete
+xontrib load vox
 xontrib load vox_tabcomplete
+xontrib load click_tabcomplete
 xontrib load autoxsh
 # -----------------------------------------------------------------------------
 # |                                  ALIASES                                  |
@@ -39,3 +42,4 @@ aliases['sedit'] = 'scrapy edit --set=EDITOR="charm"'
 aliases['movies'] = 'cat ~/documents/movies'
 aliases['movie'] = 'echo "$1" >> ~/documents/movies'
 aliases['cpp'] = 'rsync --info=progress2'  # copy with progress
+aliases['vimw'] = 'vim -c "execute Writing()"'  # vim in writing mode
