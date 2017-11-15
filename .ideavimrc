@@ -1,5 +1,7 @@
 set number
 set relativenumber
+let mapleader=<Space>
+set iskeyword=_ 
 map <Leader>h :action Vcs.ShowTabbedFileHistory<CR>
 map <Leader>a :action Annotate<CR>
 map <Leader>q :action CloseContent<CR>
@@ -7,6 +9,7 @@ map <Leader>g :action EditSource<CR>
 map <A-l> :action Forward<CR>
 map <A-h> :action Back<CR>
 map <Leader>S-Q :action  CloseAllEditorsButActive<CR>
+map <Leader>t :action  ToggleMainMenuAction<CR>
 
-source ~/.vimrc
+"source ~/.vimrc
 
