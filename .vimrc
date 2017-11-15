@@ -15,7 +15,14 @@ Plugin 'junegunn/goyo.vim'
 Plugin 'beloglazov/vim-online-thesaurus'
 Plugin 'nelstrom/vim-markdown-folding'
 Plugin 'vim-scripts/indentpython.vim'
+Plugin 'davidhalter/jedi-vim'
+Plugin 'elzr/vim-json'
+Plugin 'amoffat/snake'
+Plugin 'dhruvasagar/vim-table-mode'
+" Plugin 'myusuf3/numbers.vim'  " breaks with goyo or something
+Plugin 'terryma/vim-expand-region'
 Bundle 'Valloric/YouCompleteMe'
+Bundle 'Rykka/riv.vim'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -27,23 +34,39 @@ filetype plugin indent on    " required
 " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 " --------------------------------------------------------
 set number
+nnoremap <F3> :set nonumber! \| :NumbersToggle<CR> 
+nnoremap <Leader>r :source $MYVIMRC<CR>
+"map v <Plug>(expand_region_expand)  " vim-expand-region plugin
+vmap <C-v> <Plug>(expand_region_shrink)
 set encoding=utf-8
+set spell
+nnoremap <Space> <nop>  " unmap space for remaping to leader later
+let mapleader = "\<Space>"
+vmap <Leader>y "+y
+vmap <Leader>d "+d
+nmap <Leader>p "+p
+nmap <Leader>P "+P
+vmap <Leader>p "+p
+vmap <Leader>P "+P
+nnoremap <Leader>k :OnlineThesaurusCurrentWord<CR>
 " theme
 syntax enable
 syntax on
+"set t_Co=256
+"let g:solarized_termtrans=1                                                   
+"let g:solarized_termcolors=256
 set background=dark
 colorscheme solarized
-let g:solarized_termcolors=256
 "set whichwrap=b,s,<,>,[,],h,l
 set scrolloff=4
 inoremap <C-BS> <C-W>
+nnoremap j gj
+nnoremap k gk
+nnoremap 0 g0
+nnoremap $ g$
 function! Writing()
 	set nonumber
 	set nobreakindent
-	nnoremap j gj
-	nnoremap k gk
-	nnoremap 0 g0
-	nnoremap $ g$
 	"set guioptions-=r
 	"set guioptions-=L
 	set guicursor=a:blinkon0
@@ -81,3 +104,6 @@ au BufNewFile,BufRead *.js, *.html, *.css
     \ set tabstop=2|
     \ set softtabstop=2|
     \ set shiftwidth=2|
+
+au BufNewFile,BufRead *.json
+    \ set nospell
