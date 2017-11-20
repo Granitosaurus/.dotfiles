@@ -69,5 +69,6 @@ stty -ixon
 export EDITOR='vim'
 export BROWSER='firefox'
 export VISUAL='vim'
+export TERM=xterm-256color
 
 doge -mh 20 #enable doge on startup
