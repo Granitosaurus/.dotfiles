@@ -1,0 +1,7 @@
+Type=Application
+Version=1.0
+Name=unit
+Comment=convert unit and display as notification
+Path=$HOME/bin/unit
+Exec=$HOME/bin/unit
+#Terminal=false
