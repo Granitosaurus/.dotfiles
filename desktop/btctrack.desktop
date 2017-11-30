@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=btctrack
+Comment=track bitcoin bitfinex rates
+Exec=qutebrowser --backend webengine --basedir "~/.config/qutebrowser_btc/" "https://dwq4do82y8xi7.cloudfront.net/widgetembed/?symbol=BITFINEX:BTCUSD&interval=1&symboledit=1&toolbarbg=f1f3f6&hideideas=1&studies=&theme=White&style=1&timezone=exchange"
+Icon=btctrack
+Terminal=false
+StartupNotify=false
+Categories=Application;
