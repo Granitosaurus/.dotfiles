@@ -1,0 +1,9 @@
+.env
+**/.autoxsh
+**/*env/
+**/dist/
+**/*egg-info/
+**/.idea
+**/build
+**/*.out
+**/__pycache__
