@@ -1,3 +1,4 @@
+set shell=/bin/bash
 " VUNDLE SETTINGS
 " --------------------------------------------------
 set nocompatible              " be iMproved, required
@@ -23,6 +24,11 @@ Plugin 'dhruvasagar/vim-table-mode'
 Plugin 'terryma/vim-expand-region'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'Rykka/riv.vim'
+Bundle 'Rykka/InstantRst'
+let g:instant_rst_additional_dirs=['/home/dex/projects/blog/content/images', '/home/dex/projects/blog/content/gifs']
+let g:instant_rst_bind_scroll=0
+let g:instant_rst_localhost_only=1
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -55,8 +61,8 @@ syntax on
 "set t_Co=256
 "let g:solarized_termtrans=1                                                   
 "let g:solarized_termcolors=256
-set background=dark
 colorscheme solarized
+set background=light
 "set whichwrap=b,s,<,>,[,],h,l
 set scrolloff=4
 inoremap <C-BS> <C-W>
