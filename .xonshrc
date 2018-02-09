@@ -12,8 +12,13 @@ $PATH = [
     '~/bin',
     '~/.local/bin',
 ]
-$PROMPT='{branch_color}{curr_branch}{env_name}{BLUE}{user}@{WHITE}{cwd}{BLUE}\n{prompt_end}{NO_COLOR} '
+$PROMPT='{GREEN}{prompt_end}{NO_COLOR} '
+$TITLE='T:{short_cwd}'
+$BOTTOM_TOOLBAR='{WHITE}<{vi_mode}>{branch_color}{curr_branch}{env_name}{BLUE}{user}@{WHITE}{cwd}{BLUE}{NO_COLOR}|{current_job}'
 $XONSH_COLOR_STYLE="monokai"
+$EDITOR='vim'
+$VI_MODE=True
+$LINODE='139.162.132.245'
 # fix for `tldr` package
 $TLDR_COLOR_NAME="green"
 $TLDR_COLOR_EXAMPLE="white"
@@ -22,15 +27,17 @@ $TLDR_COLOR_BLANK="white"
 # -----------------------------------------------------------------------------
 # |                             Fixes And Scripts                             |
 # -----------------------------------------------------------------------------
-source ~/bin/vox_fix.xsh
-source ~/.api_keys
+#source ~/bin/vox_fix.xsh
+#source ~/.api_keys
 source-bash $(ssh-agent)  # then just ssh-add
+source-bash /etc/profile.d/locale.sh
 # -----------------------------------------------------------------------------
 # |                                 XONTRIBS                                  |
 # -----------------------------------------------------------------------------
 #xontrib load pacman_tabcomplete
 #xontrib load scrapy_tabcomplete
 xontrib load vox
+xontrib enable prompt_vi_mode
 xontrib load vox_tabcomplete
 #xontrib load click_tabcomplete
 xontrib load autoxsh
@@ -48,4 +55,32 @@ aliases['qb'] = 'qutebrowser --backend webengine'
 aliases['pusa'] = 'proxychains -f ~/proxies/usa.conf'
 aliases['myip'] = "http 'http://httpbin.org/ip' -b | jq -r '.origin'"
 aliases['godesktop'] = "cd ~/.local/share/applications"
+aliases['feh'] = "feh -."
+aliases['lessf'] = "less -F"
+
+def _msd():
+    sudo mount /dev/mmcblk0p1 /media/sdcard/ and cd /media/sdcard/
+aliases['msd'] = _msd
+def _umsd():
+    cd ~ and sudo umount /media/sdcard/
+aliases['umsd'] = _umsd
+def _mkdircd(args, stdin=None):
+    mkdir @(args[0]) and cd @(args[0])
+aliases['mkcd'] = _mkdircd
+
+# -----------------------------------------------------------------------------
+# |                                 KEYBINDS                                  |
+# -----------------------------------------------------------------------------
+
+from prompt_toolkit.keys import Keys
+from prompt_toolkit.filters import Condition, EmacsInsertMode, ViInsertMode
+
+#@events.on_ptk_create
+#def custom_keybindings(bindings, **kw):
+    #handler = bindings.registry.add_binding
+#
+    #@handler(Keys.ControlL)
+    #def list_dir(event):
+        #ls -l
+        #event.cli.renderer.erase()
 
