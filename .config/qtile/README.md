@@ -1,5 +1,14 @@
 # Full Modern Qtile Config
 
+![screenshot](screenshot.png)
+
+This config features:
+
+* Clean layout 
+* Drop down terminal
+* Sane keybinds
+* Modular configuration, split across multiple files
+
 This config is split into modules:
 
 * keys - hotkeys and keybindings
