@@ -31,7 +31,6 @@ bottom_bar_widgets = [
     widget.Battery(),
     widget.Volume(),
     widget.Systray(),
-    # widget.BitcoinTicker(format="--`BTC: {avg}", source_currency='btc', currency='usd'),
     widget.Clock(format='%Y-%m-%d %a %I:%M %p'),
 ]
 

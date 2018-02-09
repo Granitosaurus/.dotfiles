@@ -1,10 +1,9 @@
-from libqtile.config import Key, Group
+from libqtile.config import Group
 from libqtile.command import lazy
 from libqtile.config import EzKey
 
 import solarized
 from dropdown import DropDown
-from scratchpad import scratchpad, show_scratchpad
 
 left, down, up, right = 'hjkl'
 mod = 'mod4'
