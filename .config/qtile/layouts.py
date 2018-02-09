@@ -4,7 +4,6 @@ import solarized
 layouts = [
     layout.Max(),
     layout.MonadTall(border_focus=solarized.base02),
-    layout.Matrix(border_focus=solarized.base02),
 ]
 
 floating_layout = layout.Floating(
