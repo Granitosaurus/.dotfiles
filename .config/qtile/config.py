@@ -1,32 +1,42 @@
-from libqtile.config import Key, Screen, Group, Drag, Click
+from libqtile.config import Screen, Drag, Click
 from libqtile.command import lazy
-from libqtile import layout, bar, widget, hook
-from keys import keys, mod, groups
+from libqtile import bar, widget, hook
+from keys import keys, groups
 from layouts import layouts, floating_layout
+from scratchpad import remove_scratchpadded, set_scratchpadded
+from widgets import CryptoTicker
 
-widget_defaults = dict(
-    font='sans',
-    fontsize=24,
-    padding=6,
-)
+"""
+This is main config file that should import all other config files and expose these variables:
+    floating_layout groups keys
+    layouts 
+    mouse
+    screens
+    wmname
+"""
+
+mod = 'mod4'
+import os
+
+# defaults for widgets and extensions
+widget_defaults = dict(font='sans', fontsize=16, padding=6)
+
 extension_defaults = widget_defaults.copy()
+bottom_bar_widgets = [
+    widget.CurrentLayoutIcon(),
+    widget.GroupBox(),
+    CryptoTicker(currency='usd', from_currency='bitcoin', format='{to_price}:{percent_change_1h}|{percent_change_24h}%', update_interval=60),
+    widget.Prompt(),
+    widget.TaskList(rounded=False, margin_y=8, margin_x=1, padding_x=1),
+    widget.Battery(),
+    widget.Volume(),
+    widget.Systray(),
+    # widget.BitcoinTicker(format="--`BTC: {avg}", source_currency='btc', currency='usd'),
+    widget.Clock(format='%Y-%m-%d %a %I:%M %p'),
+]
 
 screens = [
-    Screen(
-        bottom=bar.Bar(
-            [
-                widget.GroupBox(),
-                widget.CurrentLayoutIcon(),
-                widget.Prompt(),
-                widget.WindowTabs(),
-                widget.Battery(),
-                widget.Volume(),
-                #widget.BitcoinTicker(format="--`BTC: {avg}", source_currency='btc', currency='usd'),
-                widget.Clock(format='%Y-%m-%d %a %I:%M %p'),
-            ],
-            40,
-        ),
-    ),
+    Screen(bottom=bar.Bar(size=40, widgets=bottom_bar_widgets)),
 ]
 
 # Drag floating layouts.
@@ -46,17 +56,21 @@ bring_front_click = False
 cursor_warp = False
 auto_fullscreen = True
 focus_on_window_activation = "smart"
-
 # for some java apps to work
 wmname = "LG3D"
-# startup apps
 
+
+# startup apps
 def wallpaper():
     os.system('feh --bg-scale ~/.wallpaper')
+
 
 @hook.subscribe.startup
 def autostart():
     wallpaper()
 
-if __name__ == "__main__":
-    print(keys)
+
+@hook.subscribe.client_new
+def dialogs(window):
+    if window.window.get_wm_type() == 'dialog' or window.window.get_wm_transient_for():
+        window.floating = True

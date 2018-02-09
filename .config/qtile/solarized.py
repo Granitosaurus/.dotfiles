@@ -1,4 +1,6 @@
-# Solarized colors
+"""
+Color set for solarized dark colors
+"""
 base03 = "#002b36"
 base02 = "#073642"
 base01 = "#586e75"
