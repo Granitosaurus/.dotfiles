@@ -1,0 +1,38 @@
+menu_parent	Left
+menu_child	Right
+menu_down	Down
+menu_up		Up
+
+scroll_left	S-h
+scroll_right	S-l
+scroll_up	S-k
+scroll_down	S-j
+
+scroll_left_page	C-h
+scroll_right_page	C-l
+scroll_up_page		C-k
+scroll_down_page	C-j
+
+toggle_aliasing		A
+toggle_filenames	d
+toggle_pointer		o
+toggle_fullscreen	f
+
+zoom_in		l
+zoom_out	h
+
+next_img	j
+prev_img	k
+reload_image	r
+size_to_image	w
+next_dir	bracketright
+prev_dir	bracketleft
+orient_3	parenright
+orient_1	parenleft
+flip		underscore
+mirror		bar
+remove		Delete
+zoom_fit	s
+zoom_default	a
+
+close	q Q
